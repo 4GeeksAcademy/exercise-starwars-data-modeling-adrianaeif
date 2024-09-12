@@ -62,7 +62,6 @@ class vehicles(Base):
 class Favorite_Planet(Base):
     __tablename__ = 'favorite_planet'
     id = Column(Integer, primary_key=True)
-    user = Column(Integer, ForeignKey("user.id"))
     planet = Column(Integer, ForeignKey("planet.id"))
     
 
@@ -72,7 +71,6 @@ class Favorite_Planet(Base):
 class Favorite_Vehicle(Base):
     __tablename__ = 'favorite_vehicles'
     id = Column(Integer, primary_key=True)
-    user = Column(Integer, ForeignKey("user.id"))
     vehicles = Column(Integer, ForeignKey("vehicles.id"))
 
 
@@ -82,7 +80,6 @@ class Favorite_Vehicle(Base):
 class Favorite_Character(Base):
     __tablename__ = 'favorite_character'
     id = Column(Integer, primary_key=True)
-    user = Column(Integer, ForeignKey("user.id"))
     character = Column(Integer, ForeignKey("character.id"))
 
     def to_dict(self):
@@ -91,7 +88,6 @@ class Favorite_Character(Base):
 class Favorite_Film(Base):
     __tablename__ = 'favorite_film'
     id = Column(Integer, primary_key=True)
-    user = Column(Integer, ForeignKey("user.id"))
     pelicula = Column(Integer, ForeignKey("films.id"))
 
     def to_dict(self):
@@ -119,6 +115,17 @@ class Director(Base):
     def to_dict(self):
         return {}
 
+class Favorite(Base):
+    __tablename__ = 'favorite'
+    id = Column(Integer, primary_key=True)
+    user = Column(Integer, ForeignKey("user.id"))
+    films = Column(Integer, ForeignKey("films.id"))
+    character = Column(Integer, ForeignKey("character.id"))
+    vehicles = Column(Integer, ForeignKey("vehicles.id"))
+    planet = Column(Integer, ForeignKey("planet.id"))
+
+    def to_dict(self):
+        return {}
 
 
 
