@@ -58,40 +58,7 @@ class vehicles(Base):
 
     def to_dict(self):
         return {}
-    
-class Favorite_Planet(Base):
-    __tablename__ = 'favorite_planet'
-    id = Column(Integer, primary_key=True)
-    planet = Column(Integer, ForeignKey("planet.id"))
-    
 
-    def to_dict(self):
-        return {}
-    
-class Favorite_Vehicle(Base):
-    __tablename__ = 'favorite_vehicles'
-    id = Column(Integer, primary_key=True)
-    vehicles = Column(Integer, ForeignKey("vehicles.id"))
-
-
-    def to_dict(self):
-        return {}
-    
-class Favorite_Character(Base):
-    __tablename__ = 'favorite_character'
-    id = Column(Integer, primary_key=True)
-    character = Column(Integer, ForeignKey("character.id"))
-
-    def to_dict(self):
-        return {}
-    
-class Favorite_Film(Base):
-    __tablename__ = 'favorite_film'
-    id = Column(Integer, primary_key=True)
-    pelicula = Column(Integer, ForeignKey("films.id"))
-
-    def to_dict(self):
-        return {}
 
 class Films(Base):
     __tablename__ = 'films'
